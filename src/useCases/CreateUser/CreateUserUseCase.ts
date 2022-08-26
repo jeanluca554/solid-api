@@ -10,6 +10,10 @@ export class CreateUserUseCase {
     ) { };
 
     async execute(data: ICreateUserRequestDTO) {
+        if (!data.email) {
+            throw new Error('Email incorrect');
+        }
+
         const userAlreadyExists = await this.userRepository.findByEmail(data.email);
 
         if (userAlreadyExists) {
@@ -20,7 +24,9 @@ export class CreateUserUseCase {
 
         await this.userRepository.save(user);
 
-        await this.mailProvider.sendMail({
+        return user;
+
+        /*await this.mailProvider.sendMail({
             to: {
                 name: data.name,
                 email: data.email
@@ -31,6 +37,6 @@ export class CreateUserUseCase {
             },
             subject: 'Seja bem-vindo à plataforma',
             body: '<p>Você já pode fazer login em nossa plataforma.</p>'
-        })
+        })*/
     }
 }
