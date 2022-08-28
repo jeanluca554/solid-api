@@ -1,4 +1,3 @@
-import { networkInterfaces } from "os";
 import { v4 as uuid } from "uuid";
 
 export class User {
