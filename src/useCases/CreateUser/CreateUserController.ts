@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import { CreateUserUseCase } from "./CreateUserUseCase";
+import { hash } from "bcryptjs";
 
 export class CreateUserController {
     constructor(
@@ -7,12 +8,15 @@ export class CreateUserController {
     ) { }
 
     async handle(request: Request, response: Response): Promise<Response> {
-        const { name, email, admin, createdAt, updatedAt } = request.body;
+        const { name, email, password, admin, createdAt, updatedAt } = request.body;
+
+        const passwordHash = await hash(password, 8);
 
         try {
             const user = await this.createUserUseCase.execute({
                 name,
                 email,
+                password: passwordHash,
                 admin,
                 createdAt,
                 updatedAt,
