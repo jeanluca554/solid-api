@@ -2,7 +2,7 @@ export interface ICreateUserRequestDTO {
     name: string;
     email: string;
     password: string;
-    admin: boolean;
+    admin: false;
     createdAt: Date;
     updatedAt: Date;
 }
