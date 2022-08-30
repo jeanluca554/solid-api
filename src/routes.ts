@@ -3,6 +3,7 @@ import { createUserController } from "./useCases/CreateUser";
 import { createTagController } from "./useCases/CreateTag";
 import { ensureAdmin } from "./middlewares/ensureAdmin";
 import { authenticateUserController } from "./useCases/AuthenticateUser";
+import { createComplimentController } from "./useCases/CreateCompliment";
 
 const router = Router();
 
@@ -16,6 +17,10 @@ router.post('/tags', ensureAdmin, (request, response) => {
 
 router.post('/login', (request, response) => {
     return authenticateUserController.handle(request, response);
+});
+
+router.post('/compliments', (request, response) => {
+    return createComplimentController.handle(request, response);
 });
 
 export { router };
