@@ -13,6 +13,16 @@ export class MySqlUsersRepository implements IUsersRepository {
         return userEmail;
     }
 
+    async findById(id: string): Promise<User> {
+        const userId = await prisma.users.findUnique({
+            where: {
+                id: id,
+            },
+        })
+
+        return userId;
+    }
+
     async save(user: User): Promise<void> {
         // const userData: User = await prisma.users.create({
         await prisma.users.create({
