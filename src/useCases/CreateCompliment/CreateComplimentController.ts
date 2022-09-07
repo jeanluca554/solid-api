@@ -7,7 +7,9 @@ export class CreateComplimentController {
     ) { }
 
     async handle(request: Request, response: Response): Promise<Response> {
-        const { message, createdAt, tagId, userSender, userReceiver } = request.body;
+        const { message, createdAt, tagId, userReceiver } = request.body;
+
+        const { userId } = request; //prevent anyone can manipulate user sender
 
         //try {
         const compliment = await this.createComplimentUseCase.execute({
@@ -15,7 +17,7 @@ export class CreateComplimentController {
             createdAt,
             tagId,
             userReceiver,
-            userSender
+            userSender: userId
         })
 
         //return response.status(201).send();
