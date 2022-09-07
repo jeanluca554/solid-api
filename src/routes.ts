@@ -1,7 +1,9 @@
 import { Router } from "express";
 import { createUserController } from "./useCases/CreateUser";
 import { createTagController } from "./useCases/CreateTag";
-import { ensureAdmin } from "./middlewares/ensureAdmin";
+// import { ensureAdmin, ensureController } from "./middlewares/EnsureAdmin/index";
+import { ensureAdmin } from "./middlewares/ensureAdmin"
+import { ensureAuthenticated } from "./middlewares/ensureAuthenticated";
 import { authenticateUserController } from "./useCases/AuthenticateUser";
 import { createComplimentController } from "./useCases/CreateCompliment";
 
@@ -11,7 +13,7 @@ router.post('/users', (request, response) => {
     return createUserController.handle(request, response);
 });
 
-router.post('/tags', ensureAdmin, (request, response) => {
+router.post('/tags', ensureAuthenticated, ensureAdmin, (request, response) => {
     return createTagController.handle(request, response);
 });
 
@@ -19,7 +21,7 @@ router.post('/login', (request, response) => {
     return authenticateUserController.handle(request, response);
 });
 
-router.post('/compliments', (request, response) => {
+router.post('/compliments', ensureAuthenticated, (request, response) => {
     return createComplimentController.handle(request, response);
 });
 
