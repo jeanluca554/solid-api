@@ -1,14 +1,13 @@
 import { Router } from "express";
 import { createUserController } from "./useCases/User/CreateUser";
 import { createTagController } from "./useCases/Tag/CreateTag";
-// import { ensureAdmin, ensureController } from "./middlewares/EnsureAdmin/index";
 import { ensureAdmin } from "./middlewares/ensureAdmin"
 import { ensureAuthenticated } from "./middlewares/ensureAuthenticated";
 import { authenticateUserController } from "./useCases/User/AuthenticateUser";
 import { createComplimentController } from "./useCases/Compliment/CreateCompliment";
-
 import { listComplimentUserReceiverController } from "./useCases/Compliment/ListComplimentUserReceiver";
 import { listComplimentUserSenderController } from "./useCases/Compliment/ListComplimentUserSender";
+import { listTagController } from "./useCases/Tag/ListTag"
 
 const router = Router();
 
@@ -31,8 +30,13 @@ router.post('/compliments', ensureAuthenticated, (request, response) => {
 router.get('/users/compliments/send', ensureAuthenticated, (request, response) => {
     return listComplimentUserSenderController.handle(request, response);
 });
+
 router.get('/users/compliments/receive', ensureAuthenticated, (request, response) => {
     return listComplimentUserReceiverController.handle(request, response);
+});
+
+router.get('/tags', ensureAuthenticated, (request, response) => {
+    return listTagController.handle(request, response);
 });
 
 export { router };

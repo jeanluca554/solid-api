@@ -15,6 +15,12 @@ export class MySqlTagsRepository implements ITagsRepository {
         return tagName;
     }
 
+    async listTags() {
+        const tags = await prisma.tags.findMany()
+
+        return tags;
+    }
+
     async save(tag: Tag): Promise<void> {
 
         const tagData: Tag = await prisma.tags.create({
