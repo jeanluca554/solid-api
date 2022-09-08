@@ -23,6 +23,18 @@ export class MySqlUsersRepository implements IUsersRepository {
         return userId;
     }
 
+    async listUsers() {
+        const users = await prisma.users.findMany({
+            select: {
+                name: true,
+                email: true,
+                admin: true
+            }
+        })
+
+        return users;
+    }
+
     async save(user: User): Promise<void> {
         // const userData: User = await prisma.users.create({
         await prisma.users.create({

@@ -7,7 +7,8 @@ import { authenticateUserController } from "./useCases/User/AuthenticateUser";
 import { createComplimentController } from "./useCases/Compliment/CreateCompliment";
 import { listComplimentUserReceiverController } from "./useCases/Compliment/ListComplimentUserReceiver";
 import { listComplimentUserSenderController } from "./useCases/Compliment/ListComplimentUserSender";
-import { listTagController } from "./useCases/Tag/ListTag"
+import { listTagController } from "./useCases/Tag/ListTag";
+import { listUserController } from "./useCases/User/ListUser";
 
 const router = Router();
 
@@ -37,6 +38,10 @@ router.get('/users/compliments/receive', ensureAuthenticated, (request, response
 
 router.get('/tags', ensureAuthenticated, (request, response) => {
     return listTagController.handle(request, response);
+});
+
+router.get('/users', ensureAuthenticated, (request, response) => {
+    return listUserController.handle(request, response);
 });
 
 export { router };
