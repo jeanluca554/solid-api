@@ -1,4 +1,4 @@
-import { IComplimentRepository } from "../../repositories/IComplimentRepository";
+import { IComplimentRepository } from "../../../repositories/IComplimentRepository";
 
 export class ListComplimentUserSenderUseCase {
     constructor(

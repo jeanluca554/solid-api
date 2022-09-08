@@ -1,5 +1,4 @@
-import { User } from "../../entities/User";
-import { IUsersRepository } from "../../repositories/IUserRepository";
+import { IUsersRepository } from "../../../repositories/IUserRepository";
 import { IAuthenticateUserRequestDTO } from "./AuthenticateUserDTO";
 import { compare } from "bcryptjs";
 import { sign } from "jsonwebtoken";

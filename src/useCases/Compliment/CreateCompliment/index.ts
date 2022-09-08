@@ -1,4 +1,4 @@
-import { MySqlComplimentsRepository } from "../../repositories/implementations/MySqlComplimentsRepository";
+import { MySqlComplimentsRepository } from "../../../repositories/implementations/MySqlComplimentsRepository";
 import { CreateComplimentController } from "./CreateComplimentController";
 import { CreateComplimentUseCase } from "./CreateComplimentUseCase";
 

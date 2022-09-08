@@ -1,5 +1,5 @@
-import { Tag } from "../../entities/Tag";
-import { ITagsRepository } from "../../repositories/ITagRepository";
+import { Tag } from "../../../entities/Tag";
+import { ITagsRepository } from "../../../repositories/ITagRepository";
 import { ICreateTagRequestDTO } from "./CreateTagDTO";
 
 export class CreateTagUseCase {

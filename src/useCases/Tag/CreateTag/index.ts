@@ -1,4 +1,4 @@
-import { MySqlTagsRepository } from "../../repositories/implementations/MySqlTagsRepository";
+import { MySqlTagsRepository } from "../../../repositories/implementations/MySqlTagsRepository";
 import { CreateTagController } from "./CreateTagController";
 import { CreateTagUseCase } from "./CreateTagUseCase";
 

@@ -1,6 +1,6 @@
-import { User } from "../../entities/User";
-import { IMailProvider } from "../../providers/ImailProvider";
-import { IUsersRepository } from "../../repositories/IUserRepository";
+import { User } from "../../../entities/User";
+import { IMailProvider } from "../../../providers/ImailProvider";
+import { IUsersRepository } from "../../../repositories/IUserRepository";
 import { ICreateUserRequestDTO } from "./CreateUserDTO";
 
 export class CreateUserUseCase {

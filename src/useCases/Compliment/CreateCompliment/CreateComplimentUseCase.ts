@@ -1,5 +1,5 @@
-import { Compliment } from "../../entities/Compliment";
-import { IComplimentRepository } from "../../repositories/IComplimentRepository";
+import { Compliment } from "../../../entities/Compliment";
+import { IComplimentRepository } from "../../../repositories/IComplimentRepository";
 import { ICreateComplimentRequestDTO } from "./CreateComplimentDTO";
 
 export class CreateComplimentUseCase {

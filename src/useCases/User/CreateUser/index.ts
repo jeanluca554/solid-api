@@ -1,5 +1,5 @@
-import { MailtrapMailProvider } from "../../providers/implementations/MailtrapMailProvider";
-import { MySqlUsersRepository } from "../../repositories/implementations/MySqlUsersRepository";
+import { MailtrapMailProvider } from "../../../providers/implementations/MailtrapMailProvider";
+import { MySqlUsersRepository } from "../../../repositories/implementations/MySqlUsersRepository";
 import { CreateUserController } from "./CreateUserController";
 import { CreateUserUseCase } from "./CreateUserUseCase";
 

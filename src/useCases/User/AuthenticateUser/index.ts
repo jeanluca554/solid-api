@@ -1,4 +1,4 @@
-import { MySqlUsersRepository } from "../../repositories/implementations/MySqlUsersRepository";
+import { MySqlUsersRepository } from "../../../repositories/implementations/MySqlUsersRepository";
 import { AuthenticateUserController } from "./AuthenticateUserController";
 import { AuthenticateUserUseCase } from "./AuthenticateUserUseCase";
 
