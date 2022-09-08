@@ -7,6 +7,9 @@ import { ensureAuthenticated } from "./middlewares/ensureAuthenticated";
 import { authenticateUserController } from "./useCases/AuthenticateUser";
 import { createComplimentController } from "./useCases/CreateCompliment";
 
+import { listComplimentUserReceiverController } from "./useCases/ListComplimentUserReceiver";
+import { listComplimentUserSenderController } from "./useCases/ListComplimentUserSender";
+
 const router = Router();
 
 router.post('/users', (request, response) => {
@@ -24,5 +27,15 @@ router.post('/login', (request, response) => {
 router.post('/compliments', ensureAuthenticated, (request, response) => {
     return createComplimentController.handle(request, response);
 });
+
+router.get('/users/compliments/send', ensureAuthenticated, (request, response) => {
+    return listComplimentUserSenderController.handle(request, response);
+});
+router.get('/users/compliments/receive', ensureAuthenticated, (request, response) => {
+    return listComplimentUserReceiverController.handle(request, response);
+});
+
+// router.get("/users/compliments/send", ensureAuthenticated, listComplimentUserSenderController.handle)
+// router.get("/users/compliments/receive", ensureAuthenticated, listComplimentUserReceiverController.handle)
 
 export { router };

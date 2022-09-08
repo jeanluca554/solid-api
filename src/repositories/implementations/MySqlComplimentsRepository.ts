@@ -13,6 +13,28 @@ export class MySqlComplimentsRepository implements IComplimentRepository {
 
         return userId;
     }
+    async findComplimentsByUserReceiver(id: string) {
+        const compliments = await prisma.compliments.findMany({
+            where: {
+                userReceiver: {
+                    id: id
+                }
+            },
+        })
+
+        return compliments;
+    }
+    async findComplimentsByUserSender(id: string) {
+        const compliments = await prisma.compliments.findMany({
+            where: {
+                userSender: {
+                    id: id
+                }
+            },
+        })
+
+        return compliments;
+    }
 
     async save(compliment: Compliment): Promise<void> {
 

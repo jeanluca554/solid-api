@@ -2,10 +2,6 @@ import { MySqlComplimentsRepository } from "../../repositories/implementations/M
 import { CreateComplimentController } from "./CreateComplimentController";
 import { CreateComplimentUseCase } from "./CreateComplimentUseCase";
 
-
-
-
-
 const mySqlComplimentRepository = new MySqlComplimentsRepository;
 
 const createComplimentUseCase = new CreateComplimentUseCase(mySqlComplimentRepository);
