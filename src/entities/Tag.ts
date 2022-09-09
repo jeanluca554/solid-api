@@ -1,16 +1,13 @@
 import { v4 as uuid } from "uuid";
 
-export class User {
+export class Tag {
     public readonly id: string;
 
     public name: string;
-    public email: string;
-    public password: string;
-    public admin: boolean;
     public createdAt: Date;
     public updatedAt: Date;
 
-    constructor(props: Omit<User, 'id'>, id?: string) {
+    constructor(props: Omit<Tag, 'id'>, id?: string) {
         Object.assign(this, props); // this.name = props.name, this.email = props.email, etc.
 
         if (!id) {
